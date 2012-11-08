@@ -53,7 +53,7 @@ function update() {
       .data(nodes, function(d) { return d.id; })
 
   node.enter().append("svg:image")
-      .attr("xlink:href", function(d) {return 'img/' + d.name + '.jpg';})
+      .attr("xlink:href", function(d) {return 'img/' + d.name + '.png';})
       .attr("class", "node")
       .attr("width", function(d) { return d.size; })
       .attr("height", function(d) { return d.size; })
