@@ -53,12 +53,12 @@ function update() {
       .data(nodes, function(d) { return d.id; })
 
   node.enter().append("svg:image")
-      .attr("xlink:href", "img/jordgubbe.jpg")
+      .attr("xlink:href", function(d) {return 'img/' + d.name + '.jpg';})
       .attr("class", "node")
       .attr("x", function(d) { return d.x; })
       .attr("y", function(d) { return d.y; })
-      .attr("width", function(d) { return 50; })
-      .attr("height", function(d) { return 50; })
+      .attr("width", function(d) { return d.size; })
+      .attr("height", function(d) { return d.size; })
       .on("click", click)
       .call(force.drag);
 
