@@ -1,5 +1,5 @@
 
-var w = 1280,
+var w = 940,
     h = 800,
     node,
     link,
@@ -11,7 +11,7 @@ var force = d3.layout.force()
     .linkDistance(function(d) { return d.target._children ? 80 : 30; })
     .size([w, h - 160]);
 
-var vis = d3.select("body").append("svg:svg")
+var vis = d3.select("#data").append("svg:svg")
     .attr("width", w)
     .attr("height", h);
 
@@ -55,8 +55,6 @@ function update() {
   node.enter().append("svg:image")
       .attr("xlink:href", function(d) {return 'img/' + d.name + '.jpg';})
       .attr("class", "node")
-      .attr("x", function(d) { return d.x; })
-      .attr("y", function(d) { return d.y; })
       .attr("width", function(d) { return d.size; })
       .attr("height", function(d) { return d.size; })
       .on("click", click)
@@ -73,39 +71,6 @@ function tick() {
       .attr("y2", function(d) { return d.target.y; });
 
   node
-      .attr("x", function(d) { return d.x; })
-      .attr("y", function(d) { return d.y; })
+      .attr("x", function(d) { return d.x - d.size / 2; })
+      .attr("y", function(d) { return d.y - d.size / 2; })
 }
-
-// Color leaf nodes orange, and packages white or blue.
-function color(d) {
-  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
-}
-
-// Toggle children on click.
-function click(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
-  update();
-}
-
-// Returns a list of all nodes under the root.
-function flatten(root) {
-  var nodes = [], i = 0;
-
-  function recurse(node) {
-    if (node.children) node.size = node.children.reduce(function(p, v) { return p + recurse(v); }, 0);
-    if (!node.id) node.id = ++i;
-    nodes.push(node);
-    return node.size;
-  }
-
-  root.size = recurse(root);
-  return nodes;
-}
-
