@@ -55,8 +55,6 @@ function update() {
   node.enter().append("svg:image")
       .attr("xlink:href", function(d) {return 'img/' + d.name + '.jpg';})
       .attr("class", "node")
-      .attr("x", function(d) { return d.x; })
-      .attr("y", function(d) { return d.y; })
       .attr("width", function(d) { return d.size; })
       .attr("height", function(d) { return d.size; })
       .on("click", click)
@@ -73,8 +71,8 @@ function tick() {
       .attr("y2", function(d) { return d.target.y; });
 
   node
-      .attr("x", function(d) { return d.x; })
-      .attr("y", function(d) { return d.y; })
+      .attr("x", function(d) { return d.x - d.size / 2; })
+      .attr("y", function(d) { return d.y - d.size / 2; })
 }
 
 // Color leaf nodes orange, and packages white or blue.
