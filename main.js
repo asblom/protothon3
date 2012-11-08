@@ -24,8 +24,9 @@ d3.json("data.json", function(json) {
 });
 
 function update() {
-  var nodes = flatten(root),
-      links = d3.layout.tree().links(nodes);
+
+  var nodes = root.nodes,
+      links = root.links; //d3.layout.tree().links(nodes);
 
   // Restart the force layout.
   force
@@ -48,8 +49,7 @@ function update() {
   // Exit any old links.
   link.exit().remove();
 
-  // Update the nodes…
-  node = vis.selectAll("circle.node")
+  node = vis.selectAll("image.node")
       .data(nodes, function(d) { return d.id; })
 
   node.enter().append("svg:image")
