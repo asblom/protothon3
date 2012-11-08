@@ -2,7 +2,15 @@
   "nodes": [
     {"name": "jordgubbe", "size": 100},
     {"name": "graddfil", "size": 120},
-    {"name": "papper", "size": 70}
+    {"name": "papper", "size": 70},
+    {"name": "agg", "size": 200},
+    {"name": "bagel", "size": 170},
+    {"name": "champinjoner", "size": 140},
+    {"name": "grytbitar", "size": 300},
+    {"name": "paprika", "size": 230},
+    {"name": "prinskorv", "size": 90},
+    {"name": "raka", "size": 50},
+    {"name": "salami", "size": 190}
   ],
   "links": [
     {"source": 0, "target": 1},
