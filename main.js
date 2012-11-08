@@ -24,8 +24,9 @@ d3.json("data.json", function(json) {
 });
 
 function update() {
-  var nodes = flatten(root),
-      links = d3.layout.tree().links(nodes);
+
+  var nodes = root.nodes,
+      links = root.links; //d3.layout.tree().links(nodes);
 
   // Restart the force layout.
   force
@@ -48,31 +49,16 @@ function update() {
   // Exit any old links.
   link.exit().remove();
 
-  // Update the nodes…
-  node = vis.selectAll("circle.node")
+  node = vis.selectAll("image.node")
       .data(nodes, function(d) { return d.id; })
-      .style("fill", color);
 
-  node.transition()
-      .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; });
-
-  // Enter any new nodes.
-  // node.enter().append("svg:circle")
-  //     .attr("class", "node")
-  //     .attr("cx", function(d) { return d.x; })
-  //     .attr("cy", function(d) { return d.y; })
-  //     .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
-  //     .style("fill", color)
-  //     .on("click", click)
-  //     .call(force.drag);
   node.enter().append("svg:image")
-      .attr("xlink:href", "img/jordgubbe.png")
+      .attr("xlink:href", function(d) {return 'img/' + d.name + '.jpg';})
       .attr("class", "node")
       .attr("x", function(d) { return d.x; })
       .attr("y", function(d) { return d.y; })
-      .attr("width", function(d) { return 50; })
-      .attr("height", function(d) { return 50; })
-      //.attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
+      .attr("width", function(d) { return d.size; })
+      .attr("height", function(d) { return d.size; })
       .on("click", click)
       .call(force.drag);
 
