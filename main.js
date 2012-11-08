@@ -74,36 +74,3 @@ function tick() {
       .attr("x", function(d) { return d.x - d.size / 2; })
       .attr("y", function(d) { return d.y - d.size / 2; })
 }
-
-// Color leaf nodes orange, and packages white or blue.
-function color(d) {
-  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
-}
-
-// Toggle children on click.
-function click(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
-  update();
-}
-
-// Returns a list of all nodes under the root.
-function flatten(root) {
-  var nodes = [], i = 0;
-
-  function recurse(node) {
-    if (node.children) node.size = node.children.reduce(function(p, v) { return p + recurse(v); }, 0);
-    if (!node.id) node.id = ++i;
-    nodes.push(node);
-    return node.size;
-  }
-
-  root.size = recurse(root);
-  return nodes;
-}
-
