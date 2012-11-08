@@ -65,7 +65,7 @@ function update() {
   //     .style("fill", color)
   //     .on("click", click)
   //     .call(force.drag);
-  node.enter().append("image")
+  node.enter().append("svg:image")
       .attr("xlink:href", "img/jordgubbe.png")
       .attr("class", "node")
       .attr("x", function(d) { return d.x; })
