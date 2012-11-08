@@ -8,7 +8,7 @@ var w = 940,
 var force = d3.layout.force()
     .on("tick", tick)
     .charge(function(d) { return d._children ? -d.size / 100 : -30; })
-    .linkDistance(function(d) { return d.target._children ? 80 : 30; })
+    .linkDistance(300)
     .size([w, h - 160]);
 
 var vis = d3.select("#data").append("svg:svg")
