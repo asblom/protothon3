@@ -1,5 +1,5 @@
 
-var w = 1280,
+var w = 940,
     h = 800,
     node,
     link,
@@ -11,7 +11,7 @@ var force = d3.layout.force()
     .linkDistance(function(d) { return d.target._children ? 80 : 30; })
     .size([w, h - 160]);
 
-var vis = d3.select("body").append("svg:svg")
+var vis = d3.select("#data").append("svg:svg")
     .attr("width", w)
     .attr("height", h);
 
