@@ -9,6 +9,7 @@ var force = d3.layout.force()
     .on("tick", tick)
     .charge(function(d) { return d._children ? -d.size / 100 : -30; })
     .linkDistance(300)
+    .gravity(.02)
     .size([w, h - 160]);
 
 var vis = d3.select("#data").append("svg:svg")
@@ -44,7 +45,8 @@ function update() {
       .attr("x1", function(d) { return d.source.x; })
       .attr("y1", function(d) { return d.source.y; })
       .attr("x2", function(d) { return d.target.x; })
-      .attr("y2", function(d) { return d.target.y; });
+      .attr("y2", function(d) { return d.target.y; })
+      .style("stroke-width", function(d) { return (d.weight || '2') + 'px'; });
 
   // Exit any old links.
   link.exit().remove();
