@@ -3,8 +3,8 @@ body { width: 940px; margin: 0 auto; background: #fff; padding: 20px; box-shadow
 
 a { text-decoration: none; }
 
-.header { padding: 20px 0; }
-.logo { color: orange; font-size: 40px; }
+
+.logo { display: block; color: orange; font-size: 40px; width: 341px; height: 100px; background: url(img/cooperate_logo.png); text-indent: -9000px; }
 .logo span { color: #df8500 }
 
 svg { margin: auto; display: block; }
