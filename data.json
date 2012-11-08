@@ -5,15 +5,24 @@
     {"name": "papper", "size": 70},
     {"name": "agg", "size": 200},
     {"name": "bagel", "size": 170},
-    {"name": "champinjoner", "size": 140},
-    {"name": "grytbitar", "size": 300},
+    {"name": "champinjoner", "size": 14},
+    {"name": "grytbitar", "size": 220},
     {"name": "paprika", "size": 230},
     {"name": "prinskorv", "size": 90},
     {"name": "raka", "size": 50},
     {"name": "salami", "size": 190}
   ],
   "links": [
-    {"source": 0, "target": 1},
-    {"source": 0, "target": 2}
+    {"source": 0, "target": 1, "weight": 6},
+    {"source": 0, "target": 3, "weight": 1},
+    {"source": 1, "target": 6, "weight": 2},
+    {"source": 3, "target": 4, "weight": 4},
+    {"source": 3, "target": 8, "weight": 3},
+    {"source": 4, "target": 10, "weight": 2},
+    {"source": 4, "target": 7, "weight": 2},
+    {"source": 5, "target": 6, "weight": 5},
+    {"source": 6, "target": 10, "weight": 3},
+    {"source": 7, "target": 9, "weight": 2},
+    {"source": 9, "target": 3, "weight": 4}
   ]
 }
