@@ -57,12 +57,22 @@ function update() {
       .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; });
 
   // Enter any new nodes.
-  node.enter().append("svg:circle")
+  // node.enter().append("svg:circle")
+  //     .attr("class", "node")
+  //     .attr("cx", function(d) { return d.x; })
+  //     .attr("cy", function(d) { return d.y; })
+  //     .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
+  //     .style("fill", color)
+  //     .on("click", click)
+  //     .call(force.drag);
+  node.enter().append("image")
+      .attr("xlink:href", "img/jordgubbe.png")
       .attr("class", "node")
-      .attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; })
-      .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
-      .style("fill", color)
+      .attr("x", function(d) { return d.x; })
+      .attr("y", function(d) { return d.y; })
+      .attr("width", function(d) { return 50; })
+      .attr("height", function(d) { return 50; })
+      //.attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
       .on("click", click)
       .call(force.drag);
 
@@ -76,8 +86,9 @@ function tick() {
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-  node.attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; });
+  node
+      .attr("x", function(d) { return d.x; })
+      .attr("y", function(d) { return d.y; })
 }
 
 // Color leaf nodes orange, and packages white or blue.
