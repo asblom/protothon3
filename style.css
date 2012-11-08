@@ -1,0 +1,13 @@
+html { background: #f5f5f5; }
+body { width: 940px; margin: 0 auto; background: #fff; padding: 20px; box-shadow: 0 0 10px #ddd; }
+
+a { text-decoration: none; }
+
+.header { padding: 20px 0; }
+.logo { color: orange; font-size: 40px; }
+.logo span { color: #df8500 }
+
+svg { margin: auto; display: block; }
+
+.footer { color: #999 }
+.orange { color: orange; }
