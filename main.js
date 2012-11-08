@@ -51,20 +51,7 @@ function update() {
   // Update the nodes…
   node = vis.selectAll("circle.node")
       .data(nodes, function(d) { return d.id; })
-      .style("fill", color);
 
-  node.transition()
-      .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; });
-
-  // Enter any new nodes.
-  // node.enter().append("svg:circle")
-  //     .attr("class", "node")
-  //     .attr("cx", function(d) { return d.x; })
-  //     .attr("cy", function(d) { return d.y; })
-  //     .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
-  //     .style("fill", color)
-  //     .on("click", click)
-  //     .call(force.drag);
   node.enter().append("svg:image")
       .attr("xlink:href", "img/jordgubbe.png")
       .attr("class", "node")
@@ -72,7 +59,6 @@ function update() {
       .attr("y", function(d) { return d.y; })
       .attr("width", function(d) { return 50; })
       .attr("height", function(d) { return 50; })
-      //.attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
       .on("click", click)
       .call(force.drag);
 
