@@ -57,7 +57,6 @@ function update() {
       .attr("class", "node")
       .attr("width", function(d) { return d.size; })
       .attr("height", function(d) { return d.size; })
-      .on("click", click)
       .call(force.drag);
 
   // Exit any old nodes.
